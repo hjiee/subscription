@@ -1,13 +1,19 @@
 object Versions {
+
     const val BUILD_GRADLE = "4.1.1"
     const val KOTLIN = "1.4.10"
+    const val COROUTINES = "1.3.7"
 
     // Android Fragmework
     const val CORE_KTX = "1.3.2"
     const val APP_COMPAT = "1.2.0"
     const val MATERIAL = "1.2.1"
     const val CONSTRAINT_LAYOUT = "2.0.4"
-    const val JUNIT = "4.13.1"
+    const val COORDINATOR_LAYOUT = "1.1.0"
+    const val RECYCLER_VIEW = "1.1.0"
+    const val ACTIVITY_KTX = "1.1.0"
+    const val FRAGMENT_KTX = "1.2.4"
+    const val LIFECYCLE = "2.2.0"
 
 
     // Third Party Libraries
@@ -21,6 +27,7 @@ object Versions {
     const val TIMBER = "4.7.1"
 
     // Test
-    const val TEST_JUNIT = "1.1.2"
+    const val TEST_JUNIT = "4.13.1"
+    const val TEST_X_JUNIT = "1.1.2"
     const val TEST_ESPRESSO = "3.3.0"
 }

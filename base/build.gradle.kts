@@ -1,6 +1,5 @@
 plugins {
-    id("com.android.application")
-    id("dagger.hilt.android.plugin")
+    id ("com.android.library")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
@@ -11,7 +10,6 @@ android {
     buildToolsVersion(AndroidConfig.BUILD_TOOL_VERSION)
 
     defaultConfig {
-        applicationId(AndroidConfig.APPLICATION_ID)
         minSdkVersion(AndroidConfig.MIN_SDK_VERSION)
         targetSdkVersion(AndroidConfig.TARGET_SDK_VERSION)
         versionCode(AndroidConfig.VERSION_CODE)
@@ -24,24 +22,32 @@ android {
         sourceCompatibility(JavaVersion.VERSION_1_8)
         targetCompatibility(JavaVersion.VERSION_1_8)
     }
-
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+    androidExtensions {
+        isExperimental = true
     }
 }
 
 dependencies {
 
-    api(project(":base"))
+    implementation(Libs.KOTLIN)
+    implementation(Libs.CORE_KTX)
+
     implementation(Libs.APP_COMPAT)
     implementation(Libs.MATERIAL)
     implementation(Libs.CONSTRAINT_LAYOUT)
 
-    implementation(Libs.COROUTINES_CORE)
-    implementation(Libs.COROUTINES_ANDROID)
-    implementation(Libs.HILT)
-    implementation(Libs.HILT_VIEWMODEL)
-    kapt(Libs.HILT_ANNOTATION)
-    kapt(Libs.HILT_COMPILER)
+    implementation(Libs.GLIDE)
+    implementation(Libs.GLIDE_TRANSFORMATIONS)
+    implementation(Libs.TIMBER)
 
+    testImplementation(TestLibs.JUNIT)
+    androidTestImplementation(TestLibs.TEST_JUNIT)
+    androidTestImplementation(TestLibs.TEST_ESPRESSO)
 }
