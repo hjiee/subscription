@@ -11,7 +11,14 @@ object Versions {
 
 
     // Third Party Libraries
-
+    const val GLIDE = "4.11.0"
+    const val GLIDE_TRANFORMATION = "4.1.0"
+    const val RETROFIT = "2.8.2"
+    const val OK_HTTP = "4.7.2"
+    const val GSON = "2.8.6"
+    const val HILT = "2.28-alpha"
+    const val HILT_VIEWMODEL = "1.0.0-alpha01"
+    const val TIMBER = "4.7.1"
 
     // Test
     const val TEST_JUNIT = "1.1.2"
