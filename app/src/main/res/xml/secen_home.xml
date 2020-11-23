@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@+id/start"
+        motion:motionInterpolator="linear"
+        motion:duration="1000">
+        <OnSwipe
+            motion:touchAnchorId="@+id/rv_subscription"
+            motion:touchAnchorSide="top"
+            motion:dragDirection="dragUp" />
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint android:id="@+id/ib_setting"/>
+        <Constraint android:id="@+id/ib_add"/>
+        <Constraint android:id="@+id/tv_total_price_per_month"/>
+        <Constraint android:id="@+id/tv_total_price_per_month_title"/>
+        <Constraint android:id="@+id/rv_subscription"/>
+        <Constraint android:id="@+id/fb_subscription"/>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint android:id="@+id/ib_setting"/>
+        <Constraint android:id="@+id/ib_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            motion:layout_constraintTop_toTopOf="@+id/ib_setting"
+            motion:layout_constraintBottom_toBottomOf="@+id/ib_setting" />
+
+        <Constraint android:id="@+id/tv_total_price_per_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="@+id/ib_setting"
+            motion:layout_constraintBottom_toBottomOf="@+id/ib_setting"
+            motion:layout_constraintStart_toEndOf="@id/ib_add"
+            motion:layout_constraintEnd_toStartOf="@+id/ib_setting">
+        </Constraint>
+
+        <Constraint android:id="@+id/tv_total_price_per_month_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="@+id/tv_total_price_per_month"
+            motion:layout_constraintEnd_toEndOf="@+id/tv_total_price_per_month"
+            motion:layout_constraintTop_toBottomOf="@+id/tv_total_price_per_month"
+            android:alpha="0"/>
+
+        <Constraint android:id="@+id/rv_subscription"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            motion:layout_constraintTop_toBottomOf="@+id/ib_setting"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"/>
+
+        <Constraint android:id="@+id/fb_subscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"/>
+
+    </ConstraintSet>
+
+</MotionScene>

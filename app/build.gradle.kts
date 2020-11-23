@@ -28,6 +28,13 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
+    androidExtensions {
+        isExperimental = true
+    }
 }
 
 dependencies {
