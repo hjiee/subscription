@@ -9,6 +9,14 @@ object Libs {
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
     const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
     const val COORDINATOR_LAYOUT = "androidx.coordinatorlayout:coordinatorlayout:${Versions.COORDINATOR_LAYOUT}"
+    const val ROOM_RUNTIME =  "androidx.room:room-runtime:${Versions.ROOM}"
+    const val ROOM_RXJAVA2 =  "androidx.room:room-rxjava2:${Versions.ROOM}"
+    const val ROOM_KTX =  "androidx.room:room-ktx:${Versions.ROOM}"
+    const val ROOM_GUAVA =  "androidx.room:room-guava:${Versions.ROOM}"
+    const val ROOM_COMPILER =  "androidx.room:room-compiler:${Versions.ROOM}"
+    const val LIFECYCLE_VIEW_MODEL_KTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
+    const val ACTIVITY_KTX = "androidx.activity:activity-ktx:${Versions.ACTIVITY_KTX}"
+    const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX}"
 
     // Third Party Libraries
     const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
@@ -23,6 +31,10 @@ object Libs {
     const val HILT_VIEWMODEL = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.HILT_VIEWMODEL}"
     const val HILT_COMPILER = "androidx.hilt:hilt-compiler:${Versions.HILT_VIEWMODEL}"
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
+    const val RX_JAVA =  "io.reactivex.rxjava2:rxjava:${Versions.RX_JAVA}"
+    const val RX_KOTLIN =  "io.reactivex.rxjava2:rxkotlin:${Versions.RX_KOTLIN}"
+    const val RX_ANDROID =  "io.reactivex.rxjava2:rxandroid:${Versions.RX_ANDROID}"
+    const val RX_RETROFIT =  "com.squareup.retrofit2:adapter-rxjava2:${Versions.RX_RETROFIT}"
 
 }
 

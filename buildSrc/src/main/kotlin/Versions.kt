@@ -14,6 +14,7 @@ object Versions {
     const val ACTIVITY_KTX = "1.1.0"
     const val FRAGMENT_KTX = "1.2.4"
     const val LIFECYCLE = "2.2.0"
+    const val ROOM = "2.2.5"
 
 
     // Third Party Libraries
@@ -25,6 +26,11 @@ object Versions {
     const val HILT = "2.28-alpha"
     const val HILT_VIEWMODEL = "1.0.0-alpha01"
     const val TIMBER = "4.7.1"
+    const val RX_JAVA = "2.2.10"
+    const val RX_KOTLIN = "2.3.0"
+    const val RX_ANDROID = "2.1.1"
+    const val RX_RETROFIT = "2.5.0"
+
 
     // Test
     const val TEST_JUNIT = "4.13.1"

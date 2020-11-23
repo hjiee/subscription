@@ -3,4 +3,7 @@
 
     <string name="format_price">%,.0f원</string>
     <string name="total_price_per_month">월 구독 비용</string>
+    <string name="str_setting">설정</string>
+    <string name="str_add">추가</string>
+    <string name="str_detail">상세</string>
 </resources>

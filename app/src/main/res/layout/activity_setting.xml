@@ -14,8 +14,9 @@
 
         <include
             android:id="@+id/include_toolbar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:title="@{@string/str_setting}"
             layout="@layout/layout_navigation_toolbar"/>
 
         <androidx.recyclerview.widget.RecyclerView
