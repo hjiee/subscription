@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.hjiee.subscription.data.local.db.AppDataBase
 import com.hjiee.subscription.data.local.db.SubscriptionDao
+import com.hjiee.subscription.data.repository.AddRepository
+import com.hjiee.subscription.data.repository.AddRepositoryImpl
 import com.hjiee.subscription.data.repository.HomeRepository
 import com.hjiee.subscription.data.repository.HomeRepositoryImpl
 import com.hjiee.subscription.ui.AppApplication.Companion.DATABASE_NAME
@@ -29,4 +31,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideHomRepository(subscriptionDao: SubscriptionDao) : HomeRepository = HomeRepositoryImpl(subscriptionDao)
+
+    @Provides
+    @Singleton
+    fun provideAddRepository(subscriptionDao: SubscriptionDao) : AddRepository = AddRepositoryImpl(subscriptionDao)
 }

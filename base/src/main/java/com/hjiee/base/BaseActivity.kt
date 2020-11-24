@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.util.DisplayMetrics
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -27,6 +28,7 @@ abstract class BaseActivity<B : ViewDataBinding>(private val layoutId : Int) : A
         observing()
         lifeCylceLog("onCreate")
     }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,

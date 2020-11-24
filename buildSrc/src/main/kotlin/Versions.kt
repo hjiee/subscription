@@ -3,6 +3,7 @@ object Versions {
     const val BUILD_GRADLE = "4.1.1"
     const val KOTLIN = "1.4.10"
     const val COROUTINES = "1.3.7"
+    const val GOOGLE_SERVICE = "4.3.4"
 
     // Android Fragmework
     const val CORE_KTX = "1.3.2"
@@ -30,6 +31,11 @@ object Versions {
     const val RX_KOTLIN = "2.3.0"
     const val RX_ANDROID = "2.1.1"
     const val RX_RETROFIT = "2.5.0"
+
+    // Firebase
+    const val FIREBASE_BOM = "26.1.0"
+    const val CRASHLYTICS = "2.4.1"
+    const val FIRESTORE = "21.2.1"
 
 
     // Test

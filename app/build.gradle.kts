@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("dagger.hilt.android.plugin")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
@@ -43,6 +45,12 @@ dependencies {
     implementation(Libs.APP_COMPAT)
     implementation(Libs.MATERIAL)
     implementation(Libs.CONSTRAINT_LAYOUT)
+
+    // firebase
+    implementation(platform(Libs.FIREBASE_BOM))
+    implementation(Libs.ANALYTICS)
+    implementation(Libs.CRASHLYTICS)
+    implementation(Libs.FIRESTORE)
 
     implementation(Libs.COROUTINES_CORE)
     implementation(Libs.COROUTINES_ANDROID)
