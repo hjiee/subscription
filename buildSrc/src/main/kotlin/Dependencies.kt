@@ -36,6 +36,12 @@ object Libs {
     const val RX_ANDROID =  "io.reactivex.rxjava2:rxandroid:${Versions.RX_ANDROID}"
     const val RX_RETROFIT =  "com.squareup.retrofit2:adapter-rxjava2:${Versions.RX_RETROFIT}"
 
+    // firebase
+    const val FIREBASE_BOM = "com.google.firebase:firebase-bom:${Versions.FIREBASE_BOM}"
+    const val ANALYTICS = "com.google.firebase:firebase-analytics-ktx"
+    const val CRASHLYTICS = "com.google.firebase:firebase-crashlytics-ktx"
+    const val FIRESTORE = "com.google.firebase:firebase-firestore:${Versions.FIRESTORE}"
+
 }
 
 object TestLibs {
