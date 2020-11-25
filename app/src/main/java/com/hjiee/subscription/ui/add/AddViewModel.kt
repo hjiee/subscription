@@ -1,8 +1,10 @@
 package com.hjiee.subscription.ui.add
 
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.room.EmptyResultSetException
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.hjiee.base.BaseViewModel
@@ -24,10 +26,10 @@ class AddViewModel @ViewModelInject constructor(
     lateinit var lastVisible: DocumentSnapshot
 
     private val _items = MutableLiveData<List<SubscriptionEntity>>()
-    val items : LiveData<List<SubscriptionEntity>> get() = _items
+    val items: LiveData<List<SubscriptionEntity>> get() = _items
 
     private val _total = MutableLiveData<Int>()
-    val total : LiveData<Int> get() = _total
+    val total: LiveData<Int> get() = _total
 
     val isSubscribed = SingleLiveEvent<Boolean>()
 
@@ -37,7 +39,7 @@ class AddViewModel @ViewModelInject constructor(
             .get()
             .addOnSuccessListener { documentSnapshot ->
                 // 파이어베이스 페이징
-                if(documentSnapshot.size() >= 1) {
+                if (documentSnapshot.size() >= 1) {
                     lastVisible = documentSnapshot.documents[documentSnapshot.size() - 1]
                 }
                 val temp = mutableListOf<SubscriptionEntity>()
@@ -54,16 +56,28 @@ class AddViewModel @ViewModelInject constructor(
             }
     }
 
-    fun subscribe(item : SubscriptionEntity) {
-        addRepository.insert(item)
+    fun insert(item: SubscriptionEntity) {
+        Log.d("error", "insert ${item}")
+        addRepository.isContains(item)
             .subscribe(
-                {
-                    isSubscribed.call(true)
+                { result ->
+                    Log.w("error", "result ${result}")
+                    result?.let { isSubscribed.call(false) }
                 },
                 {
-
+                    when (it) {
+                        is EmptyResultSetException -> { subscribe(item) }
+                    }
+                    Log.e("error", "insert error :  ${it}")
                 }
-            ).addTo(compositeDisposable)
+            )
+            .addTo(compositeDisposable)
+    }
+
+    private fun subscribe(item: SubscriptionEntity) {
+        addRepository.insert(item)
+            .subscribe({ isSubscribed.call(true) }, { Log.e("error", "subscribe error : ${it}") })
+            .addTo(compositeDisposable)
     }
 
     fun write() {

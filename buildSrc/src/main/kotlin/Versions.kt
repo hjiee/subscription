@@ -11,6 +11,7 @@ object Versions {
     const val MATERIAL = "1.2.1"
     const val CONSTRAINT_LAYOUT = "2.0.4"
     const val COORDINATOR_LAYOUT = "1.1.0"
+    const val SWIPREFRESH_LAYOUT = "1.1.0-alpha03"
     const val RECYCLER_VIEW = "1.1.0"
     const val ACTIVITY_KTX = "1.1.0"
     const val FRAGMENT_KTX = "1.2.4"

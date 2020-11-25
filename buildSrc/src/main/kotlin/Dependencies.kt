@@ -9,6 +9,7 @@ object Libs {
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
     const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
     const val COORDINATOR_LAYOUT = "androidx.coordinatorlayout:coordinatorlayout:${Versions.COORDINATOR_LAYOUT}"
+    const val SWIPREFRESH_LAYOUT = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.SWIPREFRESH_LAYOUT}"
     const val ROOM_RUNTIME =  "androidx.room:room-runtime:${Versions.ROOM}"
     const val ROOM_RXJAVA2 =  "androidx.room:room-rxjava2:${Versions.ROOM}"
     const val ROOM_KTX =  "androidx.room:room-ktx:${Versions.ROOM}"

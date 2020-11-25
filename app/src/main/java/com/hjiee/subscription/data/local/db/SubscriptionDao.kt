@@ -13,10 +13,13 @@ import io.reactivex.Single
 interface SubscriptionDao {
 
     @Insert
-    fun insert(entity: List<SubscriptionEntity?>): Completable
+    fun insert(entity: List<SubscriptionEntity>): Completable
+
+    @Query("SELECT * FROM $DATABASE_NAME WHERE title = :title")
+    fun isContains(title : String) : Single<SubscriptionEntity>
 
     @Query("DELETE FROM $DATABASE_NAME WHERE id = :id")
-    fun delete(id: String): Completable
+    fun delete(id: Int): Completable
 
     @Query("SELECT * FROM $DATABASE_NAME WHERE id = :id")
     fun getSubscription(id: String): SubscriptionEntity

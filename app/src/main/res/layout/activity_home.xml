@@ -25,9 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:paddingEnd="20dp"
-            android:paddingStart="5dp"
             android:paddingVertical="15dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="20dp"
             android:src="@drawable/ic_baseline_settings_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,36 +37,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:paddingStart="20dp"
-            android:paddingEnd="5dp"
             android:paddingVertical="15dp"
-            android:tint="@color/main_color"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp"
             android:src="@drawable/ic_baseline_add_24"
-            android:visibility="invisible"
-            tools:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
+            android:tint="@color/main_color"
+            app:layout_constraintEnd_toStartOf="@+id/ib_setting"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_total_price_per_month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{@string/format_price(sumValue)}"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:text="@{@string/format_price(sumValue)}"
-            app:layout_constraintTop_toBottomOf="@+id/ib_setting"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ib_setting"
             tools:text="50,000원" />
 
         <TextView
             android:id="@+id/tv_total_price_per_month_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tv_total_price_per_month"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingBottom="5dp"
             android:text="@string/total_price_per_month"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_price_per_month"
             tools:text="월 구독 비용" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -76,29 +75,14 @@
             android:clipToPadding="false"
             android:overScrollMode="never"
             android:paddingHorizontal="20dp"
-            android:paddingVertical="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="50dp"
             app:adapter="@{adapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_total_price_per_month_title"
-            tools:itemCount="20"
+            tools:itemCount="30"
             tools:listitem="@layout/item_card_subscription" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fb_subscription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:backgroundTint="@color/main_color"
-            android:elevation="6dp"
-            android:src="@drawable/ic_baseline_add_24"
-            app:borderWidth="0dp"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/white"
-            android:contentDescription="addItem" />
-
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

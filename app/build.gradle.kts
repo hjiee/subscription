@@ -45,6 +45,7 @@ dependencies {
     implementation(Libs.APP_COMPAT)
     implementation(Libs.MATERIAL)
     implementation(Libs.CONSTRAINT_LAYOUT)
+    implementation(Libs.SWIPREFRESH_LAYOUT)
 
     // firebase
     implementation(platform(Libs.FIREBASE_BOM))

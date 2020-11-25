@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
    <color name="default_background_color">#333333</color>
-   <color name="default_reversal_color">@color/white</color>
+   <color name="default_reversal_text_color">@color/white</color>
    <color name="default_main_system_mode_color">@color/black_alpha_50</color>
 
 </resources>

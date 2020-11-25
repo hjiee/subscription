@@ -28,19 +28,15 @@
     <ConstraintSet android:id="@+id/end">
 
         <Constraint android:id="@+id/ib_setting"/>
-        <Constraint android:id="@+id/ib_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            motion:layout_constraintTop_toTopOf="@+id/ib_setting"
-            motion:layout_constraintBottom_toBottomOf="@+id/ib_setting" />
+        <Constraint android:id="@+id/ib_add"/>
 
         <Constraint android:id="@+id/tv_total_price_per_month"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             motion:layout_constraintTop_toTopOf="@+id/ib_setting"
             motion:layout_constraintBottom_toBottomOf="@+id/ib_setting"
-            motion:layout_constraintStart_toEndOf="@id/ib_add"
+            motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintEnd_toStartOf="@+id/ib_setting">
         </Constraint>
 

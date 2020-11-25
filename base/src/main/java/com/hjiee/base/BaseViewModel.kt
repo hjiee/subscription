@@ -6,8 +6,9 @@ import com.hjiee.util.NetworkStatus
 
 abstract class BaseViewModel : ViewModel() {
 
-    val loading = MutableLiveData<Boolean>()
-    val loadingStatus = MutableLiveData<NetworkStatus>()
+    val loading by lazy { MutableLiveData<Boolean>() }
+    val loadingStatus by lazy { MutableLiveData<NetworkStatus>() }
+    val isRefresh by lazy { MutableLiveData<Boolean>() }
 
     init {
         loading.value = (false)

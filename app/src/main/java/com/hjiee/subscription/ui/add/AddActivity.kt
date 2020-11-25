@@ -17,11 +17,12 @@ import dagger.hilt.android.AndroidEntryPoint
 class AddActivity : BaseActivity<ActivityAddBinding>(R.layout.activity_add) {
 
     private val viewModel by viewModels<AddViewModel>()
-    private val snackbar by lazy { SnackbarView.create(binding.root,resources.getString(R.string.str_save)) }
+    private val snackbarSuccess by lazy { SnackbarView.create(binding.root,resources.getString(R.string.str_save)) }
+    private val snackbarFailure by lazy { SnackbarView.create(binding.root,resources.getString(R.string.str_already)) }
 
     private val itemClickListener by lazy {
         object : ItemClickListener {
-            override fun <T> onItemClick(item: T) { viewModel.subscribe(item as SubscriptionEntity) }
+            override fun <T> onItemClick(item: T) { viewModel.insert(item as SubscriptionEntity) }
         }
     }
     private val adapter by lazy {
@@ -50,8 +51,14 @@ class AddActivity : BaseActivity<ActivityAddBinding>(R.layout.activity_add) {
         viewModel.apply {
             items.observe(this@AddActivity) { adapter.updateItems(it) }
             isSubscribed.observe(this@AddActivity) {
-                if(!snackbar.isShown) {
-                    snackbar.show()
+                if(it) {
+                    if(!snackbarSuccess.isShown) {
+                        snackbarSuccess.show()
+                    }
+                } else {
+                    if(!snackbarFailure.isShown) {
+                        snackbarFailure.show()
+                    }
                 }
             }
         }

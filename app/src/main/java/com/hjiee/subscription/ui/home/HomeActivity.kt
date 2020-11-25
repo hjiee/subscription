@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.library.baseAdapters.BR
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.hjiee.base.BaseActivity
 import com.hjiee.base.BaseItemsApdater
 import com.hjiee.ext.moveToActivity
@@ -14,6 +16,8 @@ import com.hjiee.subscription.databinding.ActivityHomeBinding
 import com.hjiee.subscription.ui.add.AddActivity
 import com.hjiee.subscription.ui.detail.DetailActivity
 import com.hjiee.subscription.ui.setting.SettingActivity
+import com.hjiee.subscription.util.SnackbarView
+import com.hjiee.subscription.util.SwipeToDeleteCallback
 import com.hjiee.util.ItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,14 +46,25 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
         )
     }
 
+    private val swipHandler by lazy {
+        object : SwipeToDeleteCallback(this@HomeActivity) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                super.onSwiped(viewHolder, direction)
+                viewModel.remove(viewHolder.adapterPosition)
+            }
+        }
+    }
+
+    private val itemTouchHelper by lazy { ItemTouchHelper(swipHandler) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.apply {
             adapter = this@HomeActivity.adapter
             ibSetting.setOnClickListener { moveToActivity(Intent(this@HomeActivity, SettingActivity::class.java)) }
             ibAdd.setOnClickListener { addSubscriptionItem() }
-            fbSubscription.setOnClickListener { addSubscriptionItem() }
             tvTotalPricePerMonth.setOnClickListener { addSubscriptionItem() }
+            itemTouchHelper.attachToRecyclerView(rvSubscription)
         }
         initViewModelObserving()
     }
@@ -85,6 +100,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
             }
             total.observe(this@HomeActivity) {
                 binding.sumValue = it
+            }
+            isDeleted.observe(this@HomeActivity) {
+                if(it) {
+                    SnackbarView.create(binding.root,resources.getString(R.string.delete_success)).show()
+                } else {
+                    SnackbarView.create(binding.root,resources.getString(R.string.delete_failure)).show()
+                }
             }
         }
     }

@@ -12,7 +12,7 @@ object SnackbarView {
             view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.default_main_system_mode_color))
             val textView = view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
             textView.textAlignment = (View.TEXT_ALIGNMENT_CENTER)
-            textView.setTextColor(ContextCompat.getColor(view.context, R.color.default_reversal_color))
+            textView.setTextColor(ContextCompat.getColor(view.context, R.color.default_reversal_text_color))
         }
     }
 }
